@@ -1,9 +1,9 @@
 {
-	"id": "ironsworn-mechanic-blocks",
-	"name": "Ironsworn Games Mechanics Blocks",
+	"id": "ironsworn-mechanics",
+	"name": "Ironsworn Mechanics",
 	"version": "1.0.0",
 	"minAppVersion": "0.15.0",
-	"description": "Custom rendering for Ironsworn family game mechanics blocks.",
+	"description": "Various support utilities and some custom rendering for mechanics in Ironsworn-family games (Starforged, Sundered Isles, etc).",
 	"author": "Kat Marchán",
 	"authorUrl": "https://github.com/zkat",
 	"fundingUrl": "https://github.com/sponsors/zkat",

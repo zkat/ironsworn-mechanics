@@ -1,7 +1,7 @@
 {
-	"name": "ironsworn-mechanic-blocks",
+	"name": "ironsworn-mechanic",
 	"version": "1.0.0",
-	"description": "Custom rendering for Ironsworn family game mechanics blocks.",
+	"description": "Various support utilities and some custom rendering for mechanics in Ironsworn-family games (Starforged, Sundered Isles, etc).",
 	"main": "main.js",
 	"scripts": {
 		"dev": "node esbuild.config.mjs",
