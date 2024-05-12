@@ -21,7 +21,7 @@ and turns it into this:
 
 #### `move`
 
-Declares a new move. A single `\`\`\`mechanics` block can contain multiple of
+Declares a new move. A single ``mechanics`` block can contain multiple of
 these nodes.
 
 ##### Arguments
