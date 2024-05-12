@@ -17,14 +17,14 @@
 
 .move {
 	cursor: default;
-	background-color: var(--ironsworn-mechanic-color-gray-20);
-	color: var(--ironsworn-mechanic-color-gray-90);
-	margin: 1em;
+	/* background-color: var(--ironsworn-mechanic-color-gray-20);
+	color: var(--ironsworn-mechanic-color-gray-90); */
+	margin: 0.5em;
 	border: 1px solid var(--ironsworn-mechanic-color-gray-90);
 	border-radius: 10px;
 	box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 	&[open] summary:has(+ *) {
-		border-bottom: 1px dashed var(--ironsworn-mechanic-color-gray-90);
+		border-bottom: 1px dashed var(--ironsworn-mechanic-color-gray-50);
 	}
 	&[open] summary:after {
 		content: "▼";
@@ -37,13 +37,16 @@
 		display: block;
 		border: none;
 		width: 100%;
-		padding: 1em;
+		padding: 0.5em;
 		text-align: center;
 		font-weight: bolder;
 	}
 
+	& > :not(:nth-child(1)) {
+		margin: 1em 2em;
+	}
+
 	& p.detail {
-		margin: 1em;
 		font-weight: bold;
 		&:before {
 			content: "➡️";
@@ -51,10 +54,11 @@
 		}
 	}
 	& dl.roll {
-		margin: 1em;
-		padding-left: 1em;
 		display: flex;
 		flex-wrap: wrap;
+		margin-left: auto;
+		margin-right: auto;
+		max-width: calc(50px * 8);
 		@media (min-width: 640px) {
 			display: grid;
 			grid-template-columns: repeat(7, 1fr);
@@ -64,14 +68,11 @@
 				grid-template-columns: repeat(8, 1fr);
 			}
 		}
-		& * {
-			filter: invert(1) hue-rotate(180deg);
-		}
 		& dt,
 		& dd {
 			display: inline-block;
 			margin: auto;
-			height: 40px;
+			height: 30px;
 			text-indent: -9999px;
 			background-position: center;
 			background-size: contain;
@@ -79,10 +80,9 @@
 			text-align: center;
 		}
 		&:after {
-			font-size: 2em;
 			font-weight: bold;
 			text-align: center;
-			margin-right: auto;
+			margin: auto;
 		}
 		&.strong-hit {
 			&:after {
