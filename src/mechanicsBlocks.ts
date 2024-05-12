@@ -1,47 +1,14 @@
-import { Plugin } from "obsidian";
 import { parse, Node as KdlNode } from "kdljs";
 
-interface IronswornMechanicsSettings {
-    mySetting: string;
-}
-
-const DEFAULT_SETTINGS: IronswornMechanicsSettings = {
-    mySetting: "default",
-};
-
-export default class IRonswornMechanicsPlugin extends Plugin {
-    settings: IronswornMechanicsSettings;
-
-    async onload() {
-        await this.loadSettings();
-        this.registerMarkdownCodeBlockProcessor(
-            "mechanics",
-            (source, el, ctx) => {
-                const doc = parse(source).output;
-                if (!doc) {
-                    throw new Error(
-                        "Failed to parse KDL code for mechanics block."
-                    );
-                }
-                for (const node of doc) {
-                    if (node.name.toLowerCase() === "move") {
-                        addMove(el, node);
-                    }
-                }
-            }
-        );
+export default function parseMechanicsBlocks(source: string, el: HTMLElement) {
+    const doc = parse(source).output;
+    if (!doc) {
+        throw new Error("Failed to parse KDL code for mechanics block.");
     }
-
-    async loadSettings() {
-        this.settings = Object.assign(
-            {},
-            DEFAULT_SETTINGS,
-            await this.loadData()
-        );
-    }
-
-    async saveSettings() {
-        await this.saveData(this.settings);
+    for (const node of doc) {
+        if (node.name.toLowerCase() === "move") {
+            addMove(el, node);
+        }
     }
 }
 
@@ -247,7 +214,7 @@ function addMove(el: HTMLElement, node: KdlNode) {
                 }
                 moveNode.createEl("p", {
                     cls: "reroll",
-                    text: "Reroll"
+                    text: "Reroll",
                 });
                 const rerollNode = moveNode.createEl("dl", {
                     cls: "reroll",
