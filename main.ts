@@ -288,6 +288,7 @@ function addMove(el: HTMLElement, node: KdlNode) {
                 }
                 if (item.properties.action != null) {
                     const newAction = item.properties.action as number;
+                    lastRoll.properties.action = newAction;
                     rerollNode.createEl("dt", {
                         text: "Old Action Die",
                     });
@@ -309,6 +310,7 @@ function addMove(el: HTMLElement, node: KdlNode) {
                 }
                 if (item.properties.vs1 != null) {
                     const newVs1 = item.properties.vs1 as number;
+                    lastRoll.properties.vs1 = newVs1;
                     rerollNode.createEl("dt", {
                         text: "Old Challenge Die 1",
                     });
@@ -330,6 +332,7 @@ function addMove(el: HTMLElement, node: KdlNode) {
                 }
                 if (item.properties.vs2 != null) {
                     const newVs2 = item.properties.vs2 as number;
+                    lastRoll.properties.vs2 = newVs2;
                     rerollNode.createEl("dt", {
                         text: "Old Challenge Die 2",
                     });
@@ -349,6 +352,15 @@ function addMove(el: HTMLElement, node: KdlNode) {
                         })
                         .setAttribute("data-value", "" + newVs2);
                 }
+                rerollNode.createEl("dt", {
+                    text: "New Score",
+                });
+                rerollNode
+                    .createEl("dd", {
+                        cls: "score",
+                        text: "" + newScore,
+                    })
+                    .setAttribute("data-value", "" + newScore);
                 rerollNode.createEl("dt", {
                     text: "Outcome",
                 });
