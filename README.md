@@ -33,8 +33,8 @@ these nodes.
 ````kdl
 ```mechanics
 move "Face Danger" {
-	roll action=6 stat=3 adds=0 vs1=8 vs2=9
-	- "ouch"
+    roll action=6 stat=3 adds=0 vs1=8 vs2=9
+    - "ouch"
 }
 move "Endure Harm" {
     - "-1 health"
